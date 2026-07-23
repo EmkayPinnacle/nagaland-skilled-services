@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<link
+rel="icon"
+type="image/png"
+sizes="32x32"
+href="images/logo/favicon-32.png">
+
+<link
+rel="icon"
+type="image/png"
+sizes="16x16"
+href="images/logo/favicon-16.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Admin Dashboard</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="container py-5" style="max-width:1100px;">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div class="text-center mb-4">
+
+    <img
+        src="images/logo/logo-ho.png"
+        height="150">
+
+</div>
+        <h1 class="fw-bold mb-0">
+
+            Admin Dashboard
+
+        </h1>
+
+        <button
+            id="logoutBtn"
+            class="btn btn-outline-danger">
+
+            Logout
+
+        </button>
+
+    </div>
+
+<div class="row g-4 mb-5">
+
+    <div class="col-md-3">
+
+        <div class="card shadow-sm text-center p-4">
+
+            <h2 id="totalCount">0</h2>
+
+            <p class="text-muted mb-0">
+                Total Professionals
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <div class="card shadow-sm text-center p-4">
+
+            <h2 id="pendingCount">0</h2>
+
+            <p class="text-warning mb-0">
+                Pending
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <div class="card shadow-sm text-center p-4">
+
+            <h2 id="verifiedCount">0</h2>
+
+            <p class="text-success mb-0">
+                Verified
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <div class="card shadow-sm text-center p-4">
+
+            <h2 id="rejectedCount">0</h2>
+
+            <p class="text-danger mb-0">
+                Rejected
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="alert alert-success">
+✅ Login Successful
+</div>
+
+<h4 class="mt-4">
+Applications
+</h4>
+
+<div class="row mb-5">
+
+    <div class="col-lg-6">
+
+        <div class="card shadow-sm">
+
+            <div class="card-body">
+
+                <h5 class="mb-3">
+
+                    Profession Distribution
+
+                </h5>
+
+                <canvas id="professionChart"></canvas>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-6">
+
+        <div class="card shadow-sm">
+
+            <div class="card-body">
+
+                <h5 class="mb-3">
+
+                    District Distribution
+
+                </h5>
+
+                <canvas id="districtChart"></canvas>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="mb-4">
+
+    <input
+        type="text"
+        id="searchInput"
+        class="form-control"
+        placeholder="🔍 Search by name, profession or district...">
+
+</div>
+
+<div class="mb-4">
+
+    <button
+        id="exportBtn"
+        class="btn btn-success">
+
+        📥 Export to Excel
+
+    </button>
+
+</div>
+
+<div class="mb-4 d-flex gap-2 flex-wrap">
+
+    <button class="btn btn-dark filterBtn" data-status="All">
+        All
+    </button>
+
+    <button class="btn btn-warning filterBtn" data-status="Pending">
+        Pending
+    </button>
+
+    <button class="btn btn-success filterBtn" data-status="Verified">
+        Verified
+    </button>
+
+    <button class="btn btn-danger filterBtn" data-status="Rejected">
+        Rejected
+    </button>
+
+</div>
+
+<div id="applicationsContainer">
+
+Loading applications...
+
+</div>
+
+</div>
+
+<!-- ================= DETAILS MODAL ================= -->
+
+<div class="modal fade" id="detailsModal" tabindex="-1">
+
+    <div class="modal-dialog modal-lg">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h5 class="modal-title">
+
+                    Professional Details
+
+                </h5>
+
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal">
+                </button>
+
+            </div>
+
+            <div class="modal-body" id="modalBody">
+
+                Loading...
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= TOAST ================= -->
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+
+    <div
+        id="successToast"
+        class="toast align-items-center text-bg-success border-0"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true">
+
+        <div class="d-flex">
+
+            <div class="toast-body" id="toastMessage">
+
+                Success!
+
+            </div>
+
+            <button
+                type="button"
+                class="btn-close btn-close-white me-2 m-auto"
+                data-bs-dismiss="toast"
+                aria-label="Close">
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Bootstrap JS MUST come before your JS -->
+
+
+<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+<script type="module" src="js/admin-dashboard.js"></script>
+
+
+</body>
+
+</html>
