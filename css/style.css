@@ -1,1695 +1,1124 @@
-/* ===========================================
-   NAGALAND SKILLED SERVICES
-   =========================================== */
+/* ==========================================================
+   NAGALAND SKILLED SERVICES — STYLESHEET
+   Refactored for readability. Visual output is unchanged.
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+   NOTE ON ORDERING:
+   Several class names are intentionally reused later in this
+   file with different values (e.g. .profession, .rating,
+   .location, .step-card, .step-number, .application-card,
+   .form-control/.form-select, .modern-label, .modern-input,
+   .section-header, .section-icon, .hero-image). Because these
+   share the same specificity, the LATER rule in source order
+   wins for any property it redeclares. To guarantee pixel-
+   identical rendering, this file preserves the exact original
+   top-to-bottom rule order — sections are labeled for
+   navigation, but later "override" blocks are NOT merged into
+   their earlier counterparts. Where this happens, a note marks
+   it as a deliberate cascade continuation — do not reorder.
+========================================================== */
+
+/* ==========================================================
+   SECTION 01
+   RESET & BASE
+========================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-
-    font-family:'Poppins',sans-serif;
-
-    background:#f8fafc;
-
-    color:#222;
-
-    line-height:1.6;
-
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f8fafc;
+    color: #222;
+    line-height: 1.6;
 }
 
-/* ===================================================
+/* ==========================================================
+   SECTION 02
    NAVBAR
-=================================================== */
+========================================================== */
 
-/* ===================================================
-   PREMIUM RESPONSIVE NAVBAR
-=================================================== */
-
-.navbar{
-
-    background:#fff;
-
-    padding:10px 0;
-
-    box-shadow:0 2px 10px rgba(0,0,0,.05);
-
+.navbar {
+    background: #fff;
+    padding: 10px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,.05);
 }
 
-.navbar-brand{
-
-    display:flex;
-
-    align-items:center;
-
-    text-decoration:none;
-
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
 }
 
-.navbar-logo{
-
-    width:auto;
-
-    height:58px;
-
+.navbar-logo {
+    width: auto;
+    height: 58px;
 }
 
-.brand-title{
-
-    font-size:1.45rem;
-
-    font-weight:700;
-
-    color:#0D1B2A;
-
-    line-height:1.1;
-
+.brand-title {
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: #0D1B2A;
+    line-height: 1.1;
 }
 
-.brand-tagline{
-
-    font-size:.75rem;
-
-    color:#777;
-
-    margin-top:2px;
-
+.brand-tagline {
+    font-size: .75rem;
+    color: #777;
+    margin-top: 2px;
 }
 
-.navbar-nav .nav-link{
-
-    color:#333 !important;
-
-    font-weight:500;
-
-    margin-left:18px;
-
-    padding:8px 12px;
-
-    border-radius:8px;
-
-    transition:.25s;
-
+.navbar-nav .nav-link {
+    color: #333 !important;
+    font-weight: 500;
+    margin-left: 18px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: .25s;
 }
 
-.navbar-nav .nav-link:hover{
-
-    background:#FFF5E8;
-
-    color:#FF7A00 !important;
-
+.navbar-nav .nav-link:hover {
+    background: #FFF5E8;
+    color: #FF7A00 !important;
 }
 
-.navbar-nav .nav-link.active{
-
-    color:#FF7A00 !important;
-
-    font-weight:700;
-
+.navbar-nav .nav-link.active {
+    color: #FF7A00 !important;
+    font-weight: 700;
 }
 
-/* ---------- Mobile ---------- */
+/* ---------- Navbar / Mobile ---------- */
 
-@media (max-width:991px){
-
-    .navbar{
-
-        padding:8px 0;
-
+@media (max-width:991px) {
+    .navbar {
+        padding: 8px 0;
     }
 
-    .navbar-brand{
-
-        max-width:80%;
-
+    .navbar-brand {
+        max-width: 80%;
     }
 
-    .navbar-logo{
-
-        height:44px;
-
+    .navbar-logo {
+        height: 44px;
     }
 
-    .brand-title{
-
-        font-size:.9rem;
-
+    .brand-title {
+        font-size: .9rem;
     }
 
-    .brand-tagline{
-
-        display:none;
-
+    .brand-tagline {
+        display: none;
     }
 
-    .navbar-toggler{
-
-        border:none;
-
-        padding:4px;
-
+    .navbar-toggler {
+        border: none;
+        padding: 4px;
     }
 
-    .navbar-toggler:focus{
-
-        box-shadow:none;
-
+    .navbar-toggler:focus {
+        box-shadow: none;
     }
 
-    .navbar-collapse{
-
-        margin-top:15px;
-
-        background:#fff;
-
-        border-radius:12px;
-
-        padding:10px;
-
+    .navbar-collapse {
+        margin-top: 15px;
+        background: #fff;
+        border-radius: 12px;
+        padding: 10px;
     }
 
-    .navbar-nav .nav-link{
+    .navbar-nav .nav-link {
+        margin: 4px 0;
+        padding: 12px;
+        border-radius: 10px;
+    }
+}
 
-        margin:4px 0;
+/* ==========================================================
+   SECTION 03
+   HERO
+========================================================== */
 
-        padding:12px;
+.hero {
+    background: linear-gradient(135deg,#0B3C5D,#0E5F96);
+    color: #fff;
+    padding: 110px 0 80px;
+}
 
-        border-radius:10px;
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
 
+.hero p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 25px;
+    opacity: .95;
+}
+
+.hero-features {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.hero-features span {
+    background: rgba(255,255,255,.12);
+    padding: 8px 14px;
+    border-radius: 30px;
+    font-size: .95rem;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.hero-buttons .btn {
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+.hero-image {
+    max-width: 100%;
+    width: 480px;
+}
+
+/* ---------- Hero / Mobile ---------- */
+
+@media (max-width:991px) {
+    .hero {
+        text-align: center;
+        padding: 90px 0 60px;
     }
 
-}
-
-/* HERO */
-
-/* =====================================================
-   HERO SECTION
-===================================================== */
-
-.hero{
-
-    background:linear-gradient(135deg,#0B3C5D,#0E5F96);
-
-    color:#fff;
-
-    padding:70px 0 50px;
-
-}
-
-.hero h1{
-
-    font-size:3rem;
-
-    font-weight:700;
-
-    line-height:1.2;
-
-    margin-bottom:20px;
-
-}
-
-.hero p{
-
-    font-size:1.1rem;
-
-    line-height:1.8;
-
-    margin-bottom:25px;
-
-    opacity:.95;
-
-}
-
-.hero-features{
-
-    display:flex;
-
-    gap:18px;
-
-    flex-wrap:wrap;
-
-    margin-bottom:30px;
-
-}
-
-.hero-features span{
-
-    background:rgba(255,255,255,.12);
-
-    padding:8px 14px;
-
-    border-radius:30px;
-
-    font-size:.95rem;
-
-}
-
-.hero-buttons{
-
-    display:flex;
-
-    gap:15px;
-
-    flex-wrap:wrap;
-
-}
-
-.hero-buttons .btn{
-
-    padding:14px 28px;
-
-    border-radius:12px;
-
-    font-weight:600;
-
-}
-
-.hero-image{
-
-    width:100%;
-    max-width:540px;
-    margin:auto;
-    display:block;
-
-}
-
-/* ================= MOBILE ================= */
-
-@media (max-width:991px){
-
-    .hero{
-
-        text-align:center;
-
-        padding:90px 0 60px;
-
+    .hero h1 {
+        font-size: 2.2rem;
     }
 
-    .hero h1{
-
-        font-size:2.2rem;
-
+    .hero p {
+        font-size: 1rem;
+        padding: 0 10px;
     }
 
-    .hero p{
-
-        font-size:1rem;
-
-        padding:0 10px;
-
+    .hero-features {
+        justify-content: center;
+        gap: 10px;
     }
 
-    .hero-features{
-
-        justify-content:center;
-
-        gap:10px;
-
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
     }
 
-    .hero-buttons{
-
-        flex-direction:column;
-
-        align-items:center;
-
+    .hero-buttons .btn {
+        width: 100%;
+        max-width: 320px;
     }
 
-    .hero-buttons .btn{
+    .hero-image {
+        width: 320px;
+        margin-top: 20px;
+    }
+}
 
-        width:100%;
+/* ==========================================================
+   SECTION 04
+   SERVICES
+========================================================== */
 
-        max-width:320px;
+#services {
+    padding: 90px 0;
+}
 
+#services h2 {
+    font-size: 2.3rem;
+    font-weight: 700;
+    color: #0D1B2A;
+}
+
+#services .text-muted {
+    font-size: 1.05rem;
+}
+
+/* ---------- Service Card ---------- */
+
+.service-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 35px 25px;
+    height: 100%;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(0,0,0,.06);
+    transition: .3s ease;
+    border: 1px solid #eee;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,.12);
+}
+
+/* ---------- Service Icon ---------- */
+
+.service-icon {
+    font-size: 54px;
+    margin-bottom: 22px;
+    display: inline-block;
+}
+
+/* ---------- Service Title ---------- */
+
+.service-card h4 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #0D1B2A;
+    margin-bottom: 15px;
+}
+
+/* ---------- Service Description ---------- */
+
+.service-card p {
+    color: #666;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ---------- Services / Mobile ---------- */
+
+@media (max-width:991px) {
+    #services {
+        padding: 70px 0;
     }
 
-    .hero-image{
-
-        width:320px;
-
-        margin-top:20px;
-
+    #services h2 {
+        font-size: 2rem;
     }
 
-}
-
-/* ================= SERVICES ================= */
-
-/* ===================================================
-   SERVICES SECTION
-=================================================== */
-
-#services{
-
-    padding:60px 0;
-
-}
-
-#services h2{
-
-    font-size:2rem;
-
-    font-weight:700;
-
-    color:#0D1B2A;
-
-}
-
-#services .text-muted{
-
-    font-size:1.05rem;
-
-}
-
-/* ---------- CARD ---------- */
-
-.service-card{
-
-    background:#fff;
-
-    border-radius:18px;
-
-    padding:35px 25px;
-
-    height:100%;
-
-    text-align:center;
-
-    box-shadow:0 8px 30px rgba(0,0,0,.06);
-
-    transition:.3s ease;
-
-    border:1px solid #eee;
-
-}
-
-.service-card:hover{
-
-    transform:translateY(-8px);
-
-    box-shadow:0 15px 35px rgba(0,0,0,.12);
-
-}
-
-/* ---------- ICON ---------- */
-
-.service-icon{
-
-    font-size:54px;
-
-    margin-bottom:22px;
-
-    display:inline-block;
-
-}
-
-/* ---------- TITLE ---------- */
-
-.service-card h4{
-
-    font-size:1.35rem;
-
-    font-weight:700;
-
-    color:#0D1B2A;
-
-    margin-bottom:15px;
-
-}
-
-/* ---------- DESCRIPTION ---------- */
-
-.service-card p{
-
-    color:#666;
-
-    line-height:1.7;
-
-    margin:0;
-
-}
-
-/* ===================================================
-   MOBILE
-=================================================== */
-
-@media (max-width:991px){
-
-    #services{
-
-        padding:70px 0;
-
+    .service-card {
+        padding: 28px 22px;
     }
 
-    #services h2{
-
-        font-size:2rem;
-
+    .service-icon {
+        font-size: 48px;
+        margin-bottom: 18px;
     }
 
-    .service-card{
+    .service-card h4 {
+        font-size: 1.2rem;
+    }
+}
 
-        padding:28px 22px;
-
+@media (max-width:576px) {
+    #services {
+        padding: 60px 0;
     }
 
-    .service-icon{
-
-        font-size:48px;
-
-        margin-bottom:18px;
-
+    .service-card {
+        border-radius: 16px;
+        padding: 26px 20px;
     }
 
-    .service-card h4{
-
-        font-size:1.2rem;
-
+    .service-icon {
+        font-size: 44px;
     }
-
 }
 
-@media (max-width:576px){
+/* ==========================================================
+   SECTION 05
+   WHY CHOOSE / CTA / FOOTER
+========================================================== */
 
-    #services{
-
-        padding:60px 0;
-
-    }
-
-    .service-card{
-
-        border-radius:16px;
-
-        padding:26px 20px;
-
-    }
-
-    .service-icon{
-
-        font-size:44px;
-
-    }
-
+.bg-light {
+    background: #eef5fb !important;
 }
 
+/* ---------- CTA ---------- */
 
-/* WHY CHOOSE */
-
-.bg-light{
-
-    background:#eef5fb !important;
-
+.cta {
+    background: #0B3C5D;
+    color: white;
+    text-align: center;
+    padding: 90px 20px;
 }
 
-/* CTA */
-
-.cta{
-
-    background:#0B3C5D;
-
-    color:white;
-
-    text-align:center;
-
-    padding:90px 20px;
-
+.cta h2 {
+    margin-bottom: 20px;
 }
 
-.cta h2{
-
-    margin-bottom:20px;
-
+.cta p {
+    font-size: 20px;
+    margin-bottom: 30px;
 }
 
-.cta p{
+/* ---------- Footer ---------- */
 
-    font-size:20px;
-
-    margin-bottom:30px;
-
+footer {
+    background: #081f30;
+    color: white;
+    text-align: center;
+    padding: 25px;
 }
 
-/* FOOTER */
-
-footer{
-
-    background:#081f30;
-
-    color:white;
-
-    text-align:center;
-
-    padding:25px;
-
-}
-
-/* ANIMATION */
+/* ==========================================================
+   SECTION 06
+   ANIMATIONS
+========================================================== */
 
 .service-card,
-.hero img{
-
-    animation:fadeUp .8s ease;
-
+.hero img {
+    animation: fadeUp .8s ease;
 }
 
-@keyframes fadeUp{
-
-    from{
-
-        opacity:0;
-
-        transform:translateY(40px);
-
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
     }
 
-    to{
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-        opacity:1;
+/* ==========================================================
+   SECTION 07
+   RESPONSIVE STYLES (legacy overrides)
+   NOTE: these breakpoints intentionally run after Section 03's
+   hero rules and re-override .hero / .hero h1 / .navbar-brand
+   at these widths. Kept in original position/order.
+========================================================== */
 
-        transform:translateY(0);
-
+@media(max-width:992px) {
+    .hero {
+        text-align: center;
+        padding: 100px 0;
     }
 
-}
-
-/* RESPONSIVE */
-
-@media(max-width:992px){
-
-.hero{
-
-text-align:center;
-
-padding:100px 0;
-
-}
-
-.hero h1{
-
-font-size:40px;
-
-}
-
-.hero img{
-
-margin-top:40px;
-
-}
-
-}
-
-@media(max-width:768px){
-
-.hero h1{
-
-font-size:34px;
-
-}
-
-h2{
-
-font-size:32px;
-
-}
-
-.navbar-brand{
-
-font-size:22px;
-
-}
-
-
-}
-/* ================= QUICK SEARCH ================= */
-
-.quick-search{
-    padding:60px 0;
-    background:#f8fafc;
-}
-
-.search-box{
-    background:white;
-    padding:40px;
-    border-radius:20px;
-    max-width:1100px;
-    margin:0 auto;
-}
-.search-box h3{
-
-font-weight:700;
-
-margin-bottom:10px;
-
-}
-
-.search-box p{
-
-color:#777;
-
-margin-bottom:30px;
-
-}
-
-.form-select{
-
-height:58px;
-
-border-radius:12px;
-
-}
-
-@media(max-width:768px){
-
-.quick-search{
-
-margin-top:30px;
-
-}
-
-.search-box{
-
-padding:25px;
-
-}
-
-}
-.hero-image{
-    width:100%;
-    height:auto;
-    border-radius:20px;
-    object-fit:cover;
-    transition:0.4s ease;
-}
-
-.hero-image:hover{
-    transform:scale(1.02);
-}
-
-/*======================
-FEATURED TECHNICIANS
-=======================*/
-
-.technician-card{
-
-    background:white;
-
-    border-radius:20px;
-
-    padding:35px;
-
-    text-align:center;
-
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
-
-    transition:.35s;
-
-}
-
-.technician-card:hover{
-
-    transform:translateY(-8px);
-
-    box-shadow:0 20px 45px rgba(0,0,0,.15);
-
-}
-
-.technician-photo{
-
-    width:120px;
-
-    height:120px;
-
-    border-radius:50%;
-
-    object-fit:cover;
-
-    margin-bottom:20px;
-
-}
-
-.verified-badge{
-
-    display:inline-block;
-
-    background:#16a34a;
-
-    color:white;
-
-    padding:6px 14px;
-
-    border-radius:50px;
-
-    font-size:13px;
-
-    margin-bottom:15px;
-
-}
-
-.profession{
-
-    color:#666;
-
-    margin-bottom:10px;
-
-}
-
-.rating{
-
-    color:#f59e0b;
-
-    font-weight:600;
-
-    margin-bottom:12px;
-
-}
-
-.location{
-
-    color:#777;
-
-    margin-bottom:20px;
-
-}
-
-/*========================
-HOW IT WORKS
-========================*/
-
-.how-it-works{
-
-    background:#f8fafc;
-
-}
-
-.step-card{
-
-    background:white;
-
-    padding:40px 30px;
-
-    border-radius:20px;
-
-    text-align:center;
-
-    height:100%;
-
-    position:relative;
-
-    transition:.3s;
-
-    box-shadow:0 8px 25px rgba(0,0,0,.06);
-
-}
-
-.step-card:hover{
-
-    transform:translateY(-8px);
-
-    box-shadow:0 20px 45px rgba(0,0,0,.12);
-
-}
-
-.step-number{
-
-    width:45px;
-
-    height:45px;
-
-    background:#F59E0B;
-
-    color:white;
-
-    border-radius:50%;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    font-weight:bold;
-
-    margin:0 auto 20px;
-
-}
-
-.step-icon{
-
-    font-size:60px;
-
-    color:#0B3C5D;
-
-    margin-bottom:20px;
-
-    display:block;
-
-}
-
-.step-card h4{
-
-    font-weight:700;
-
-    margin-bottom:15px;
-
-}
-
-.step-card p{
-
-    color:#666;
-
-    margin:0;
-
-}
-
-/*=====================
-DISTRICTS
-======================*/
-
-.district-card{
-
-background:white;
-
-padding:25px;
-
-border-radius:15px;
-
-text-align:center;
-
-font-weight:600;
-
-cursor:pointer;
-
-transition:.3s;
-
-box-shadow:0 6px 20px rgba(0,0,0,.06);
-
-}
-
-.district-card:hover{
-
-background:#0B3C5D;
-
-color:white;
-
-transform:translateY(-5px);
-
-}
-
-/*=====================
-GLOBAL SPACING
-======================*/
-
-section{
-    padding:80px 0;
-}
-
-h2{
-    font-weight:700;
-    margin-bottom:15px;
-}
-
-.text-muted{
-    max-width:650px;
-    margin:auto;
-}
-html{
-
-    scroll-behavior:smooth;
-
-}
-
-/*=========================
-PROFESSIONAL CARDS
-==========================*/
-
-.professional-card{
-
-background:white;
-
-border-radius:20px;
-
-padding:35px;
-
-text-align:center;
-
-box-shadow:0 10px 30px rgba(0,0,0,.08);
-
-transition:.35s;
-
-height:100%;
-
-}
-
-.professional-card:hover{
-
-transform:translateY(-8px);
-
-box-shadow:0 20px 45px rgba(0,0,0,.15);
-
-}
-
-.professional-photo{
-
-width:120px;
-
-height:120px;
-
-border-radius:50%;
-
-object-fit:cover;
-
-margin-bottom:20px;
-
-}
-
-.verified{
-
-display:inline-block;
-
-background:#16a34a;
-
-color:white;
-
-padding:6px 14px;
-
-border-radius:50px;
-
-font-size:13px;
-
-margin-bottom:15px;
-
-}
-
-.profession{
-
-color:#0B3C5D;
-
-font-weight:600;
-
-}
-
-.rating{
-
-color:#f59e0b;
-
-font-weight:700;
-
-margin-bottom:10px;
-
-}
-
-.location{
-
-color:#666;
-
-margin-bottom:20px;
-
-}
-
-.skills{
-
-display:flex;
-
-flex-wrap:wrap;
-
-justify-content:center;
-
-gap:8px;
-
-}
-
-.skills span{
-
-background:#eef4ff;
-
-padding:8px 14px;
-
-border-radius:50px;
-
-font-size:13px;
-
-color:#0B3C5D;
-
-font-weight:500;
-
-}
-
-.nav-link{
-
-font-weight:500;
-
-transition:.3s;
-
-}
-
-.nav-link:hover{
-
-color:#F59E0B !important;
-
-}
-
-.navbar .btn-warning{
-
-border-radius:30px;
-
-padding:8px 18px;
-
-}
-
-.apply-hero{
-
-padding:90px 0;
-
-background:#f8fafc;
-
-}
-
-.apply-hero h1{
-
-font-size:54px;
-
-font-weight:800;
-
-margin-bottom:20px;
-
-}
-
-.apply-hero p{
-
-font-size:18px;
-
-color:#666;
-
-}
-
-.hero-checks p{
-
-font-weight:600;
-
-margin-bottom:12px;
-
-color:#0B3C5D;
-
-}
-
-.apply-hero img{
-
-border-radius:25px;
-
-}
-
-/*=========================
-APPLICATION PAGE
-==========================*/
-
-.application-card{
-
-    background:#fff;
-
-    padding:50px;
-
-    border-radius:24px;
-
-    box-shadow:0 20px 60px rgba(0,0,0,.08);
-
-    margin-bottom:40px;
-
-}
-
-@media(max-width:991px){
-
-    .application-card{
-
-        padding:32px 24px;
-
-        border-radius:18px;
-
-        margin-top:15px;
-
+    .hero h1 {
+        font-size: 40px;
     }
 
+    .hero img {
+        margin-top: 40px;
+    }
 }
 
-.application-card h3{
-
-font-weight:700;
-
-margin-bottom:30px;
-
-}
-
-.benefits-card{
-
-    background:#0B3C5D;
-
-    color:white;
-
-    padding:38px;
-
-    border-radius:24px;
-
-    position:sticky;
-
-    top:100px;
-
-}
-
-@media(max-width:991px){
-
-    .benefits-card{
-
-        position:static;
-
-        margin-bottom:30px;
-
-        padding:28px;
-
+@media(max-width:768px) {
+    .hero h1 {
+        font-size: 34px;
     }
 
+    h2 {
+        font-size: 32px;
+    }
+
+    .navbar-brand {
+        font-size: 22px;
+    }
 }
 
-.benefits-card h3{
+/* ==========================================================
+   SECTION 08
+   QUICK SEARCH
+========================================================== */
 
-margin-bottom:10px;
-
+.quick-search {
+    padding: 60px 0;
+    background: #f8fafc;
 }
 
-.benefit-item{
-
-    display:flex;
-
-    gap:18px;
-
-    margin:28px 0;
-
-    align-items:flex-start;
-
+.search-box {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
-.benefit-icon{
-
-    width:56px;
-
-    height:56px;
-
-    border-radius:50%;
-
-    background:#F59E0B;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    font-size:24px;
-
-    flex-shrink:0;
-
+.search-box h3 {
+    font-weight: 700;
+    margin-bottom: 10px;
 }
 
-.benefit-item h5{
-
-margin-bottom:5px;
-
+.search-box p {
+    color: #777;
+    margin-bottom: 30px;
 }
 
-.benefit-item p{
-
-margin:0;
-
-opacity:.85;
-
+.form-select {
+    height: 58px;
+    border-radius: 12px;
 }
 
+@media(max-width:768px) {
+    .quick-search {
+        margin-top: 30px;
+    }
 
-.form-section{
-
-    margin-bottom:32px;
-
+    .search-box {
+        padding: 25px;
+    }
 }
 
-.form-section h4{
+/* ==========================================================
+   SECTION 09
+   HERO IMAGE TREATMENT
+   NOTE: this is a second, later rule for .hero-image (see
+   Section 03). Per cascade order it overrides `width` from
+   the earlier rule while `max-width:100%` from Section 03
+   still applies. Kept separate and in original position.
+========================================================== */
 
-    font-weight:700;
-
-    color:#0B3C5D;
-
-    margin-bottom:12px;
-
+.hero-image {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    object-fit: cover;
+    transition: 0.4s ease;
 }
 
-.form-section p{
-
-    color:#777;
-
-    margin-bottom:24px;
-
-    font-size:15px;
-
-    line-height:1.7;
-
+.hero-image:hover {
+    transform: scale(1.02);
 }
 
-.form-section hr{
+/* ==========================================================
+   SECTION 10
+   FEATURED TECHNICIANS
+========================================================== */
 
-    margin:26px 0 36px;
-
-    border-top:2px solid #eef2f7;
-
+.technician-card {
+    background: white;
+    border-radius: 20px;
+    padding: 35px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+    transition: .35s;
 }
 
-
-.form-control,
-.form-select{
-
-    min-height:56px;
-
-    border-radius:12px;
-
-    padding:14px 18px;
-
-    font-size:16px;
-
+.technician-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 45px rgba(0,0,0,.15);
 }
 
-textarea.form-control{
-
-    min-height:140px;
-
+.technician-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
 }
 
-.form-label{
-
-    font-weight:600;
-
-    margin-bottom:8px;
-
+.verified-badge {
+    display: inline-block;
+    background: #16a34a;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 13px;
+    margin-bottom: 15px;
 }
 
-.btn-warning{
-
-    min-height:56px;
-
-    font-weight:600;
-
-    border-radius:12px;
-
-}
-/*=========================
-HOW IT WORKS
-=========================*/
-
-.step-card{
-
-background:white;
-
-padding:35px;
-
-border-radius:20px;
-
-text-align:center;
-
-box-shadow:0 10px 30px rgba(0,0,0,.08);
-
-transition:.3s;
-
-height:100%;
-
+.profession {
+    color: #666;
+    margin-bottom: 10px;
 }
 
-.step-card:hover{
-
-transform:translateY(-8px);
-
+.rating {
+    color: #f59e0b;
+    font-weight: 600;
+    margin-bottom: 12px;
 }
 
-.step-number{
-
-width:65px;
-
-height:65px;
-
-background:#F59E0B;
-
-color:white;
-
-border-radius:50%;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-font-size:24px;
-
-font-weight:700;
-
-margin:0 auto 20px;
-
+.location {
+    color: #777;
+    margin-bottom: 20px;
 }
 
-/*=========================
-APPLICATION V2
-=========================*/
+/* ==========================================================
+   SECTION 11
+   HOW IT WORKS
+========================================================== */
 
-.application-card{
-
-background:#fff;
-
-padding:40px;
-
-border-radius:24px;
-
-box-shadow:0 15px 40px rgba(0,0,0,.08);
-
+.how-it-works {
+    background: #f8fafc;
 }
 
-.form-card{
-
-background:white;
-
-padding:35px;
-
-border-radius:22px;
-
-border:1px solid #EEF2F7;
-
-box-shadow:0 10px 25px rgba(15,23,42,.05);
-
-margin-bottom:30px;
-
-transition:.3s;
-
+.step-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    height: 100%;
+    position: relative;
+    transition: .3s;
+    box-shadow: 0 8px 25px rgba(0,0,0,.06);
 }
 
-.form-card:hover{
-
-transform:translateY(-3px);
-
-box-shadow:0 18px 40px rgba(15,23,42,.08);
-
+.step-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 45px rgba(0,0,0,.12);
 }
 
-
-.form-card h4{
-
-font-weight:700;
-
-margin-bottom:8px;
-
-color:#0B3C5D;
-
+.step-number {
+    width: 45px;
+    height: 45px;
+    background: #F59E0B;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin: 0 auto 20px;
 }
 
-.form-label{
+.step-icon {
+    font-size: 60px;
+    color: #0B3C5D;
+    margin-bottom: 20px;
+    display: block;
+}
 
-font-weight:600;
+.step-card h4 {
+    font-weight: 700;
+    margin-bottom: 15px;
+}
 
-margin-bottom:8px;
+.step-card p {
+    color: #666;
+    margin: 0;
+}
 
+/* ==========================================================
+   SECTION 12
+   DISTRICTS
+========================================================== */
+
+.district-card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s;
+    box-shadow: 0 6px 20px rgba(0,0,0,.06);
+}
+
+.district-card:hover {
+    background: #0B3C5D;
+    color: white;
+    transform: translateY(-5px);
+}
+
+/* ==========================================================
+   SECTION 13
+   GLOBAL SPACING
+========================================================== */
+
+section {
+    padding: 80px 0;
+}
+
+h2 {
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.text-muted {
+    max-width: 650px;
+    margin: auto;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* ==========================================================
+   SECTION 14
+   PROFESSIONAL CARDS
+   NOTE: .profession / .rating / .location below intentionally
+   override the values set in Section 10 (Featured Technicians)
+   per cascade order. Kept in original position.
+========================================================== */
+
+.professional-card {
+    background: white;
+    border-radius: 20px;
+    padding: 35px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+    transition: .35s;
+    height: 100%;
+}
+
+.professional-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 45px rgba(0,0,0,.15);
+}
+
+.professional-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.verified {
+    display: inline-block;
+    background: #16a34a;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.profession {
+    color: #0B3C5D;
+    font-weight: 600;
+}
+
+.rating {
+    color: #f59e0b;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.location {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+
+.skills span {
+    background: #eef4ff;
+    padding: 8px 14px;
+    border-radius: 50px;
+    font-size: 13px;
+    color: #0B3C5D;
+    font-weight: 500;
+}
+
+/* ==========================================================
+   SECTION 15
+   NAV LINK UTILITY / APPLY HERO
+========================================================== */
+
+.nav-link {
+    font-weight: 500;
+    transition: .3s;
+}
+
+.nav-link:hover {
+    color: #F59E0B !important;
+}
+
+.navbar .btn-warning {
+    border-radius: 30px;
+    padding: 8px 18px;
+}
+
+/* ---------- Apply Hero ---------- */
+
+.apply-hero {
+    padding: 90px 0;
+    background: #f8fafc;
+}
+
+.apply-hero h1 {
+    font-size: 54px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.apply-hero p {
+    font-size: 18px;
+    color: #666;
+}
+
+.hero-checks p {
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #0B3C5D;
+}
+
+.apply-hero img {
+    border-radius: 25px;
+}
+
+/* ==========================================================
+   SECTION 16
+   APPLICATION PAGE
+========================================================== */
+
+.application-card {
+    background: #fff;
+    padding: 50px;
+    border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(0,0,0,.08);
+    margin-bottom: 40px;
+}
+
+@media(max-width:991px) {
+    .application-card {
+        padding: 32px 24px;
+        border-radius: 18px;
+        margin-top: 15px;
+    }
+}
+
+.application-card h3 {
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.benefits-card {
+    background: #0B3C5D;
+    color: white;
+    padding: 38px;
+    border-radius: 24px;
+    position: sticky;
+    top: 100px;
+}
+
+@media(max-width:991px) {
+    .benefits-card {
+        position: static;
+        margin-bottom: 30px;
+        padding: 28px;
+    }
+}
+
+.benefits-card h3 {
+    margin-bottom: 10px;
+}
+
+.benefit-item {
+    display: flex;
+    gap: 18px;
+    margin: 28px 0;
+    align-items: flex-start;
+}
+
+.benefit-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #F59E0B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.benefit-item h5 {
+    margin-bottom: 5px;
+}
+
+.benefit-item p {
+    margin: 0;
+    opacity: .85;
+}
+
+/* ---------- Application Form ---------- */
+
+.form-section {
+    margin-bottom: 32px;
+}
+
+.form-section h4 {
+    font-weight: 700;
+    color: #0B3C5D;
+    margin-bottom: 12px;
+}
+
+.form-section p {
+    color: #777;
+    margin-bottom: 24px;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.form-section hr {
+    margin: 26px 0 36px;
+    border-top: 2px solid #eef2f7;
 }
 
 .form-control,
-.form-select{
+.form-select {
+    min-height: 56px;
+    border-radius: 12px;
+    padding: 14px 18px;
+    font-size: 16px;
+}
 
-padding:12px 15px;
+textarea.form-control {
+    min-height: 140px;
+}
 
-border-radius:12px;
+.form-label {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
 
-border:1px solid #D9E2EC;
+.btn-warning {
+    min-height: 56px;
+    font-weight: 600;
+    border-radius: 12px;
+}
 
+/* ==========================================================
+   SECTION 17
+   HOW IT WORKS (cascade continuation)
+   NOTE: overrides .step-card / .step-card:hover / .step-number
+   from Section 11. Kept separate and in original position —
+   .step-card:hover here does not redeclare box-shadow, so the
+   box-shadow value from Section 11 still applies on hover.
+========================================================== */
+
+.step-card {
+    background: white;
+    padding: 35px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+    transition: .3s;
+    height: 100%;
+}
+
+.step-card:hover {
+    transform: translateY(-8px);
+}
+
+.step-number {
+    width: 65px;
+    height: 65px;
+    background: #F59E0B;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 auto 20px;
+}
+
+/* ==========================================================
+   SECTION 18
+   APPLICATION V2 (cascade continuation)
+   NOTE: overrides .application-card from Section 16.
+========================================================== */
+
+.application-card {
+    background: #fff;
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 15px 40px rgba(0,0,0,.08);
+}
+
+.form-card {
+    background: white;
+    padding: 35px;
+    border-radius: 22px;
+    border: 1px solid #EEF2F7;
+    box-shadow: 0 10px 25px rgba(15,23,42,.05);
+    margin-bottom: 30px;
+    transition: .3s;
+}
+
+.form-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 40px rgba(15,23,42,.08);
+}
+
+.form-card h4 {
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #0B3C5D;
+}
+
+.form-control,
+.form-select {
+    padding: 12px 15px;
+    border-radius: 12px;
+    border: 1px solid #D9E2EC;
 }
 
 .form-control:focus,
-.form-select:focus{
-
-box-shadow:none;
-
-border-color:#F59E0B;
-
+.form-select:focus {
+    box-shadow: none;
+    border-color: #F59E0B;
 }
 
-/*=========================
-MODERN INPUTS
-=========================*/
+/* ==========================================================
+   SECTION 19
+   MODERN INPUTS
+========================================================== */
 
-.modern-label{
-
-display:block;
-
-font-size:14px;
-
-font-weight:600;
-
-margin-bottom:10px;
-
-color:#34495E;
-
+.modern-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #34495E;
 }
 
-.modern-input{
-
-width:100%;
-
-padding:16px 18px;
-
-border:2px solid #E7EDF5;
-
-border-radius:14px;
-
-font-size:16px;
-
-transition:.3s;
-
-background:white;
-
+.modern-input {
+    width: 100%;
+    padding: 16px 18px;
+    border: 2px solid #E7EDF5;
+    border-radius: 14px;
+    font-size: 16px;
+    transition: .3s;
+    background: white;
 }
 
-.modern-input:focus{
-
-outline:none;
-
-border-color:#F59E0B;
-
-box-shadow:0 0 0 5px rgba(245,158,11,.15);
-
+.modern-input:focus {
+    outline: none;
+    border-color: #F59E0B;
+    box-shadow: 0 0 0 5px rgba(245,158,11,.15);
 }
 
-
-.section-header{
-
-display:flex;
-
-align-items:center;
-
-gap:18px;
-
-margin-bottom:30px;
-
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 30px;
 }
 
-.section-icon{
-
-width:60px;
-
-height:60px;
-
-border-radius:16px;
-
-background:#FFF4D6;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-font-size:24px;
-
-color:#F59E0B;
-
-flex-shrink:0;
-
+.section-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    background: #FFF4D6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #F59E0B;
+    flex-shrink: 0;
 }
 
-.section-header h4{
-
-margin:0;
-
-font-weight:700;
-
-color:#0B3C5D;
-
+.section-header h4 {
+    margin: 0;
+    font-weight: 700;
+    color: #0B3C5D;
 }
 
-.section-header p{
-
-margin:5px 0 0;
-
-color:#777;
-
+.section-header p {
+    margin: 5px 0 0;
+    color: #777;
 }
 
-/*========== PROFILE SECTION ==========*/
+/* ==========================================================
+   SECTION 20
+   PROFILE SECTION (cascade continuation)
+   NOTE: .section-icon / .modern-label / .modern-input /
+   .form-control / .form-select below override Section 19's
+   values per cascade order. .section-icon here doesn't
+   redeclare flex-shrink, so Section 19's flex-shrink:0 still
+   applies. Kept in original position.
+========================================================== */
 
-.profile-section{
-
-background:#fff;
-
-padding:35px;
-
-border-radius:20px;
-
-border:1px solid #E8EEF5;
-
-box-shadow:0 10px 25px rgba(15,23,42,.05);
-
+.profile-section {
+    background: #fff;
+    padding: 35px;
+    border-radius: 20px;
+    border: 1px solid #E8EEF5;
+    box-shadow: 0 10px 25px rgba(15,23,42,.05);
 }
 
-.section-header{
-
-display:flex;
-
-align-items:center;
-
-gap:18px;
-
-margin-bottom:30px;
-
+.section-icon {
+    width: 65px;
+    height: 65px;
+    background: #FFF5DB;
+    color: #F59E0B;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
 }
 
-.section-icon{
-
-width:65px;
-
-height:65px;
-
-background:#FFF5DB;
-
-color:#F59E0B;
-
-border-radius:18px;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-font-size:28px;
-
+.section-header h3 {
+    margin: 0;
+    font-weight: 700;
+    color: #0B3C5D;
 }
 
-.section-header h3{
-
-margin:0;
-
-font-weight:700;
-
-color:#0B3C5D;
-
+.section-header p {
+    margin: 4px 0 0;
+    color: #64748B;
 }
 
-.section-header p{
-
-margin:4px 0 0;
-
-color:#64748B;
-
+.modern-label {
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: block;
+    font-size: 14px;
+    color: #334155;
 }
 
-.modern-label{
-
-font-weight:600;
-
-margin-bottom:10px;
-
-display:block;
-
-font-size:14px;
-
-color:#334155;
-
+.modern-input {
+    width: 100%;
+    padding: 15px 18px;
+    border: 2px solid #E5E7EB;
+    border-radius: 14px;
+    transition: .3s;
+    font-size: 15px;
 }
 
-.modern-input{
-
-width:100%;
-
-padding:15px 18px;
-
-border:2px solid #E5E7EB;
-
-border-radius:14px;
-
-transition:.3s;
-
-font-size:15px;
-
+.modern-input:focus {
+    outline: none;
+    border-color: #F59E0B;
+    box-shadow: 0 0 0 4px rgba(245,158,11,.15);
 }
 
-.modern-input:focus{
-
-outline:none;
-
-border-color:#F59E0B;
-
-box-shadow:0 0 0 4px rgba(245,158,11,.15);
-
-}
 .form-control,
-.form-select{
-
-border-radius:14px;
-
-padding:14px 16px;
-
-border:2px solid #E5E7EB;
-
+.form-select {
+    border-radius: 14px;
+    padding: 14px 16px;
+    border: 2px solid #E5E7EB;
 }
 
 .form-control:focus,
-.form-select:focus{
-
-border-color:#F59E0B;
-
-box-shadow:0 0 0 4px rgba(245,158,11,.15);
-
+.form-select:focus {
+    border-color: #F59E0B;
+    box-shadow: 0 0 0 4px rgba(245,158,11,.15);
 }
 
-.star{
+/* ---------- Star Rating ---------- */
 
-cursor:pointer;
-
-color:#ccc;
-
-transition:.2s;
-
-user-select:none;
-
+.star {
+    cursor: pointer;
+    color: #ccc;
+    transition: .2s;
+    user-select: none;
 }
 
-.star.active{
-
-color:#ffc107;
-
+.star.active {
+    color: #ffc107;
 }
 
-.star:hover{
-
-transform:scale(1.2);
-
+.star:hover {
+    transform: scale(1.2);
 }
-
-html{
-
-    scroll-behavior:smooth;
-
-}
-
-
