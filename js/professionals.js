@@ -152,7 +152,7 @@ function displayProfessionals() {
             <div class="professional-card">
 
                 <img
-                    src="${getProfileImage(professional.profession)}"
+                    src="${professional.photoUrl || getProfileImage(professional.profession)}"
                     class="professional-photo">
 
                 <div class="verified">
