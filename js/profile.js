@@ -100,7 +100,7 @@ async function loadProfile() {
             <div class="card shadow-sm border-0 rounded-4 text-center p-4">
 
                 <img
-src="${getProfileImage(professional.profession)}"
+src="${professional.photoUrl || getProfileImage(professional.profession)}"
 class="rounded-circle mx-auto mb-4"
 width="180"
                 
