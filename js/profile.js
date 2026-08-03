@@ -26,6 +26,45 @@ const id = params.get("id");
 
 const container = document.getElementById("profileContainer");
 
+// ================================
+// Track Customer Interaction
+// ================================
+
+async function trackInteraction(type) {
+
+    try {
+
+        const docRef = doc(db, "professionals", id);
+
+        if (type === "call") {
+
+            await updateDoc(docRef, {
+
+                callClicks: increment(1)
+
+            });
+
+        }
+
+        if (type === "whatsapp") {
+
+            await updateDoc(docRef, {
+
+                whatsappClicks: increment(1)
+
+            });
+
+        }
+
+    }
+
+    catch (error) {
+
+        console.error("Interaction Tracking Error:", error);
+
+    }
+
+}
 
 
 async function loadProfile() {
@@ -152,17 +191,18 @@ width="180"
                 <div class="d-grid gap-3 d-md-flex">
 
                     <a
-                    href="tel:${professional.mobile}"
-                    class="btn btn-warning btn-lg">
+    href="#"
+    id="callBtn"
+    class="btn btn-warning btn-lg">
 
                         📞 Call Now
 
                     </a>
 
                     <a
-                    href="https://wa.me/91${professional.whatsapp}"
-                    target="_blank"
-                    class="btn btn-success btn-lg">
+    href="#"
+    id="whatsappBtn"
+    class="btn btn-success btn-lg">
 
                         💬 WhatsApp
 
@@ -201,6 +241,42 @@ width="180"
     </div>
 
     `;
+
+    // ================================
+// Call Button Analytics
+// ================================
+
+const callBtn = document.getElementById("callBtn");
+
+callBtn.addEventListener("click", async (e) => {
+
+    e.preventDefault();
+
+    await trackInteraction("call");
+
+    window.location.href = `tel:${professional.mobile}`;
+
+});
+
+
+// ================================
+// WhatsApp Analytics
+// ================================
+
+const whatsappBtn = document.getElementById("whatsappBtn");
+
+whatsappBtn.addEventListener("click", async (e) => {
+
+    e.preventDefault();
+
+    await trackInteraction("whatsapp");
+
+    window.open(
+        `https://wa.me/91${professional.whatsapp}`,
+        "_blank"
+    );
+
+});
 
     loadReviews();
 

@@ -178,6 +178,94 @@ function drawCharts() {
 
 }
 
+// ================= TOP PROFESSIONALS =================
+
+function displayTopProfessionals() {
+
+    const container = document.getElementById("topProfessionals");
+
+    if (!container) return;
+
+    const ranked = [...professionals]
+
+        .map(professional => ({
+
+            ...professional,
+
+            score:
+                (professional.callClicks || 0) +
+                (professional.whatsappClicks || 0)
+
+        }))
+
+        .sort((a, b) => b.score - a.score)
+
+        .slice(0, 5);
+
+    if (ranked.length === 0) {
+
+        container.innerHTML = "<p>No professionals available.</p>";
+
+        return;
+
+    }
+
+    container.innerHTML = "";
+
+    ranked.forEach((professional, index) => {
+
+        const medal = [
+
+            "🥇",
+
+            "🥈",
+
+            "🥉",
+
+            "4️⃣",
+
+            "5️⃣"
+
+        ][index];
+
+        container.innerHTML += `
+
+        <div class="d-flex justify-content-between align-items-center border-bottom py-3">
+
+            <div>
+
+                <h5 class="mb-1">
+
+                    ${medal} ${professional.fullName}
+
+                </h5>
+
+                <small class="text-muted">
+
+                    ${professional.profession}
+
+                </small>
+
+            </div>
+
+            <div class="text-end">
+
+                <div>📞 ${professional.callClicks || 0}</div>
+
+                <div>💬 ${professional.whatsappClicks || 0}</div>
+
+                <strong>${professional.score} Total</strong>
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
+
+}
+
 // ================= DISPLAY APPLICATIONS =================
 
 function displayApplications(list) {
@@ -295,9 +383,6 @@ function displayApplications(list) {
 
 }
 
-
-// ================= LOAD APPLICATIONS =================
-
 // ================= LOAD APPLICATIONS =================
 
 async function loadApplications() {
@@ -315,6 +400,8 @@ async function loadApplications() {
     let pending = 0;
     let verified = 0;
     let rejected = 0;
+    let totalCalls = 0;
+    let totalWhatsapps = 0;
 
     snapshot.forEach((docSnap) => {
 
@@ -330,6 +417,8 @@ async function loadApplications() {
         if (professional.status === "Pending") pending++;
         if (professional.status === "Verified") verified++;
         if (professional.status === "Rejected") rejected++;
+        totalCalls += professional.callClicks || 0;
+        totalWhatsapps += professional.whatsappClicks || 0;
 
     });
 
@@ -337,10 +426,14 @@ async function loadApplications() {
     pendingCount.textContent = pending;
     verifiedCount.textContent = verified;
     rejectedCount.textContent = rejected;
+    document.getElementById("totalCallClicks").textContent = totalCalls;
+
+    document.getElementById("totalWhatsappClicks").textContent = totalWhatsapps;
 
     displayApplications(professionals);
 
     drawCharts();
+    displayTopProfessionals();
 
 }
 
