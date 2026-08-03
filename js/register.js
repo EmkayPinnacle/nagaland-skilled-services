@@ -136,6 +136,16 @@ const submitBtn = document.getElementById("submitBtn");
 submitBtn.addEventListener("click", async (event) => {
 
     event.preventDefault();
+    
+    const agreed = document.getElementById("agreeLegal");
+
+if (!agreed.checked) {
+
+    alert("Please agree to the Legal Information before submitting.");
+
+    return;
+
+}
 
     submitBtn.disabled = true;
     submitBtn.innerText = "Uploading...";

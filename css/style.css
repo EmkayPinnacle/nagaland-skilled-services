@@ -1122,3 +1122,69 @@ textarea.form-control {
 .star:hover {
     transform: scale(1.2);
 }
+
+/* ==========================================================
+   LEGAL AGREEMENT CHECKBOX
+========================================================== */
+
+.legal-agreement {
+
+    background: #fffdf5;
+
+    border: 1px solid #f3d26b;
+
+    border-radius: 12px;
+
+    padding: 18px 20px;
+
+    margin-top: 25px;
+
+}
+
+.legal-agreement .form-check {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 12px;
+
+    margin: 0;
+
+}
+
+.legal-agreement .form-check-input {
+
+    margin-top: 4px;
+
+    transform: scale(1.2);
+
+    cursor: pointer;
+
+}
+
+.legal-agreement .form-check-label {
+
+    line-height: 1.6;
+
+    color: #444;
+
+    cursor: pointer;
+
+}
+
+.legal-agreement a {
+
+    color: #f4b400;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+}
+
+.legal-agreement a:hover {
+
+    text-decoration: underline;
+
+}

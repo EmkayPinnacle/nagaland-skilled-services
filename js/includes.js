@@ -38,3 +38,44 @@ async function loadFooter() {
 }
 
 loadFooter();
+
+// ================================
+// Load Shared Legal Content
+// ================================
+
+async function loadLegalContent() {
+
+    const placeholder = document.getElementById("legal-content");
+
+    if (!placeholder) return;
+
+    const response = await fetch("components/legal-content.html");
+
+    const html = await response.text();
+
+    placeholder.innerHTML = html;
+
+}
+
+loadLegalContent();
+
+// ================================
+// Load Legal Content into Modal
+// ================================
+
+async function loadLegalModal() {
+
+    const placeholder = document.getElementById("legal-content-modal");
+    console.log("Modal Placeholder:", placeholder);
+
+    if (!placeholder) return;
+
+    const response = await fetch("components/legal-content.html");
+
+    const html = await response.text();
+
+    placeholder.innerHTML = html;
+
+}
+
+loadLegalModal();
