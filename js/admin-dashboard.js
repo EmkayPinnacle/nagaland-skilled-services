@@ -18,6 +18,7 @@ import {
     query,
     orderBy,
     onSnapshot
+    
 } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
 import { auth } from "./firebase.js";
@@ -383,6 +384,7 @@ function displayApplications(list) {
 
 }
 
+
 // ================= LOAD APPLICATIONS =================
 
 async function loadApplications() {
@@ -489,13 +491,13 @@ document.addEventListener("click", async (e) => {
     if (e.target.classList.contains("approveBtn")) {
 
         await updateDoc(
-            doc(db, "professionals", e.target.dataset.id),
-            {
-                status: "Verified"
-            }
-        );
+    doc(db, "professionals", e.target.dataset.id),
+    {
+        status: "Verified"
+    }
+);
 
-        showToast("Professional Approved!");
+showToast("Professional Approved!");
 
     }
 

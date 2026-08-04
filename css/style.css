@@ -1188,3 +1188,184 @@ textarea.form-control {
     text-decoration: underline;
 
 }
+
+/* ==========================
+   Smooth Scroll
+========================== */
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+/* =========================================
+ABOUT PAGE
+========================================= */
+
+.about-section{
+    padding:60px 0 50px;
+}
+
+.about-title{
+    font-size:4rem;
+    font-weight:800;
+    line-height:1.05;
+    color:#222;
+    margin-bottom:25px;
+}
+
+.about-description{
+    font-size:1.1rem;
+    line-height:1.9;
+    color:#666;
+    margin-bottom:45px;
+}
+
+/* =========================================
+TRUST CARDS
+========================================= */
+
+.about-card{
+
+    height:100%;
+
+    padding:28px;
+
+    background:#fff;
+
+    border:1px solid #ececec;
+
+    border-radius:18px;
+
+    transition:.25s;
+
+}
+
+.about-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 12px 25px rgba(0,0,0,.06);
+
+}
+
+.about-card h3{
+
+    color:#004fb6;
+
+    font-size:1.4rem;
+
+    font-weight:700;
+
+    margin-bottom:14px;
+
+}
+
+.about-card p{
+
+    color:#666;
+
+    line-height:1.7;
+
+    margin:0;
+
+}
+
+/* =========================================
+MISSION
+========================================= */
+
+.mission-section{
+
+    padding:60px 0;
+
+}
+
+.mission-title{
+
+    font-size:2.4rem;
+
+    font-weight:800;
+
+    color:#222;
+
+    margin-bottom:18px;
+
+}
+
+.mission-lead{
+
+    font-size:1.2rem;
+
+    font-weight:500;
+
+    color:#333;
+
+    margin-bottom:22px;
+
+}
+
+.mission-text{
+
+    font-size:1.05rem;
+
+    line-height:1.8;
+
+    color:#666;
+
+    margin-bottom:18px;
+
+}
+
+/* =========================================
+BUTTONS
+========================================= */
+
+.about-buttons{
+
+    display:flex;
+
+    gap:16px;
+
+    margin-top:35px;
+
+    flex-wrap:wrap;
+
+}
+
+.about-buttons .btn{
+
+    border-radius:50px;
+
+    padding:12px 28px;
+
+    font-weight:600;
+
+}
+
+/* =========================================
+RESPONSIVE
+========================================= */
+
+@media(max-width:992px){
+
+.about-title{
+
+font-size:2.8rem;
+
+}
+
+.about-description{
+
+font-size:1rem;
+
+}
+
+.mission-title{
+
+font-size:2rem;
+
+}
+
+}
