@@ -452,33 +452,60 @@ document.addEventListener("click", async (e) => {
 
         const professional = professionals.find(p => p.id === id);
 
-        document.getElementById("modalBody").innerHTML = `
+document.getElementById("modalBody").innerHTML = `
 
-        <table class="table table-bordered">
+${professional.photoUrl ? `
 
-            <tr><th>Full Name</th><td>${professional.fullName}</td></tr>
+<div class="text-center mb-4">
 
-            <tr><th>Mobile</th><td>${professional.mobile || "-"}</td></tr>
+    <img
+        src="${professional.photoUrl}"
+        alt="${professional.fullName}"
+        class="img-thumbnail"
+        style="
+            width:180px;
+            height:180px;
+            object-fit:cover;
+            border-radius:12px;
+        ">
 
-            <tr><th>WhatsApp</th><td>${professional.whatsapp || "-"}</td></tr>
+</div>
 
-            <tr><th>Email</th><td>${professional.email || "-"}</td></tr>
+` : `
 
-            <tr><th>Profession</th><td>${professional.profession}</td></tr>
+<div class="alert alert-warning text-center mb-4">
 
-            <tr><th>Experience</th><td>${professional.experience} Years</td></tr>
+    No profile photo uploaded.
 
-            <tr><th>District</th><td>${professional.district}</td></tr>
+</div>
 
-            <tr><th>Areas Served</th><td>${professional.areas || "-"}</td></tr>
+`}
 
-            <tr><th>Address</th><td>${professional.address || "-"}</td></tr>
+<table class="table table-bordered">
 
-            <tr><th>Bio</th><td>${professional.bio || "-"}</td></tr>
+<tr><th>Full Name</th><td>${professional.fullName}</td></tr>
 
-        </table>
+<tr><th>Mobile</th><td>${professional.mobile || "-"}</td></tr>
 
-        `;
+<tr><th>WhatsApp</th><td>${professional.whatsapp || "-"}</td></tr>
+
+<tr><th>Email</th><td>${professional.email || "-"}</td></tr>
+
+<tr><th>Profession</th><td>${professional.profession}</td></tr>
+
+<tr><th>Experience</th><td>${professional.experience} Years</td></tr>
+
+<tr><th>District</th><td>${professional.district}</td></tr>
+
+<tr><th>Areas Served</th><td>${professional.areas || "-"}</td></tr>
+
+<tr><th>Address</th><td>${professional.address || "-"}</td></tr>
+
+<tr><th>Bio</th><td>${professional.bio || "-"}</td></tr>
+
+</table>
+
+`;
 
         new bootstrap.Modal(
             document.getElementById("detailsModal")

@@ -351,6 +351,23 @@ districtFilter.addEventListener("change", applyFilters);
 
 professionFilter.addEventListener("change", applyFilters);
 
-// ================= START =================
+// Read profession from URL
+const params = new URLSearchParams(window.location.search);
 
-loadProfessionals();
+const selectedProfession = params.get("profession");
+
+if (selectedProfession) {
+
+    professionFilter.value = selectedProfession;
+
+}
+
+loadProfessionals().then(() => {
+
+    if (selectedProfession) {
+
+        applyFilters();
+
+    }
+
+});

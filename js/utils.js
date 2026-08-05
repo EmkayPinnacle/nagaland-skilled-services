@@ -14,7 +14,7 @@ export function getProfileImage(profession) {
 
     if (p.includes("plumb")) return "images/placeholders/plumber.png";
 
-    if (p.includes("mason")) return "images/placeholders/mason.png";
+    if (p.includes("home")) return "images/placeholders/home-appliances.png";
 
     if (p.includes("ac")) return "images/placeholders/ac-technician.png";
 
